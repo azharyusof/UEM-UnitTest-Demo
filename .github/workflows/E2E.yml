@@ -12,7 +12,7 @@ env:
 jobs:
   flyway-initalise-db:
     name: flyway initialise db
-    runs-on: self-hosted
+    runs-on: [self-hosted, local]
     steps:
       # Runs the Flyway Clean command against the Build database
       - name: initialise db
@@ -25,7 +25,7 @@ jobs:
 
   integration-test:
     name: playwright e2e test
-    runs-on: self-hosted
+    runs-on: [self-hosted, local]
     needs: flyway-initalise-db
     steps:
       - uses: actions/checkout@v2
