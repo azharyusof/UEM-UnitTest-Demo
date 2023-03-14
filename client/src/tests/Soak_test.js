@@ -10,7 +10,7 @@ Run soak test to:
 - Make sure the external services you depend on don't stop working after a certain amount of requests are executed
 
 How to run a soak test:
-- Determe the maximum amount of users your system can handle
+- Determine the maximum amount of users your system can handle
 - Get the 75-80% of that value
 - Set VUS to that value
 - Run the test in 3 stages. Ramp up to the VUS, stay there for 4-12 hours, rump down to 0
