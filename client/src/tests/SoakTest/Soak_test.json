@@ -1,0 +1,13 @@
+{
+    "insecureSkipTLSVerify": true,
+    "noConnectReuse": false,
+    "stages": [
+        { "duration": "2m", "target": 400}, 
+        { "duration": "3h56m", "target": 400},
+        { "duration": "10m", "target": 0} 
+    ],
+    "threshold": {
+        "http_req_duration": ["p(80)<150"], 
+        "http_req_failed": ["rate<0.1"]
+      }
+}

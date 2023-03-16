@@ -19,19 +19,33 @@ How to run a soak test:
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
-export let options = {
-    insecureSkipTLSVerify: true,
-    noConnectReuse: false,
-    stages: [
-        { duration: '2m', target: 400}, // ramp up to 400 users
-        { duration: '3h56m', target: 400}, // stay at 400 users for ~4 hours
-        { duration: '10m', target: 0}, // scale down. Recovery stage.
-    ]
-}
+// export let options = {
+//     insecureSkipTLSVerify: true,
+//     noConnectReuse: false,
+//     stages: [
+//         { duration: '2m', target: 400}, // ramp up to 400 users
+//         { duration: '3h56m', target: 400}, // stay at 400 users for ~4 hours
+//         { duration: '10m', target: 0}, // scale down. Recovery stage.
+//     ]
+// }
 
+const BASE_URL = __ENV.BASE_URL || "http://localhost:5000";
 
+// Define the test data
+const testData = {
+  movie_id: 1,
+  votes: 1,
+};
+
+// Define the test function
 export default function () {
-    const res = http.get('http://localhost:3001/');
-    check(res, { 'status was 200': (r) => r.status == 200 });
-    sleep(1);
-}
+    const url = `${BASE_URL}/movies`;
+    const params = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const res = http.post(url, JSON.stringify(testData), params);
+    check(res, { "status is 200": (r) => r.status === 200 });
+    check(res, { "response time is less than 500ms": (r) => r.timings.duration < 500 });
+  }
