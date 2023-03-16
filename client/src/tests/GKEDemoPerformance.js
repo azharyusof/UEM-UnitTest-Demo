@@ -7,7 +7,16 @@ export let options = {
 };
 
 export default function () {
-  let res = http.get('https://example.com');
+  let res = http.get('http://app.vsdemo.com/');
   check(res, { 'response time is less than 4 seconds': (r) => r.timings.duration < 4000 });
   sleep(1); // Wait for 1 second before sending the next request
 }
+
+
+
+
+
+
+
+
+
