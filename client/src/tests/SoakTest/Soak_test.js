@@ -33,8 +33,8 @@ const BASE_URL = __ENV.BASE_URL || "http://localhost:5000";
 
 // Define the test data
 const testData = {
-  movie_id: 1,
-  votes: 1,
+  "id": 1,
+  "votes": 1,
 };
 
 // Define the test function
