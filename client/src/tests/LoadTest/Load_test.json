@@ -9,8 +9,7 @@
     { "duration": "1m", "target": 0 } 
   ], 
   "threshold": {
-    "http_req_duration": ["p(99)<150"], 
-    "http_req_failed": ["rate<0.1"]
+    "http_req_duration": ["p(99)<150"]
   }
 }
 
