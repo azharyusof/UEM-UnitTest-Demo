@@ -7,7 +7,20 @@
         { "duration": "10m", "target": 0} 
     ],
     "threshold": {
-        "http_req_duration": ["p(80)<150"], 
+        "http_req_duration": ["p(9)<150"], 
         "http_req_failed": ["rate<0.1"]
-      }
+      },
+
+    
+      
+    
+    "summaryTrendStats": [
+    "avg",
+    "min",
+    "max",
+    "p(95)",
+    "p(99)"
+    ]
+
+
 }

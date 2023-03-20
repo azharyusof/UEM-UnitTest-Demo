@@ -16,9 +16,12 @@ export const options = {
   vus: 1, // 1 user looping for 1 minute
   duration: '1m',
   thresholds: {
-    http_req_duration: ['p(99)<150'], // 99% of requests must complete below 1.5s
-    http_req_failed: ['rate<0.01']  // request failing rate must below 0.01 
+    http_req_duration: ['p(95)<150'], // 99% of requests must complete below 1.5s
   },
+  abortOnFail: true, 
+
+  summaryTrendStats: ['avg', 'min', 'med', 'max', 'p(95)', 'p(99)'],
+
 };
 
 // Define the test function

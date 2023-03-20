@@ -4,7 +4,7 @@ import { check } from 'k6'
 
 export const options = {
   vus: 1, // 1 user looping 
-  duration: '30s',
+  duration: '10s',
   iterations: 1,
    thresholds: {
       http_req_duration: ['p(95)<500'], // 95% of requests must complete below 500ms

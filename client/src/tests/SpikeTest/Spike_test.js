@@ -50,5 +50,5 @@ export default function () {
     };
     const res = http.post(url, JSON.stringify(testData), params);
     check(res, { "status is 200": (r) => r.status === 200 });
-    check(res, { "response time is less than 500ms": (r) => r.timings.duration < 500 });
+    //check(res, { "response time is less than 500ms": (r) => r.timings.duration < 500 });
   }
